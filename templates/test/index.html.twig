@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Hello TestController!{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ asset('assets/css/extraitnaiss.css') }}">
+
+<div class="container">
+  <h2>Bordered Table</h2>
+  <p>The .table-bordered class adds borders to a table:</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="tabl">Firstname</th>
+        <th>Lastname</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

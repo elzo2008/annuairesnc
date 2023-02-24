@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Liste des Departements de SENICO {% endblock %}
+
+{% block content %}
+    <h1>Liste des Departements de SENICO</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for departement in departements %}
+            <tr>
+                <td>{{ departement.id }}</td>
+                <td>{{ departement.description }}</td>
+                <td>
+                    <a href="{{ path('app_departement_show', {'id': departement.id}) }}">show</a>
+                    <a href="{{ path('app_departement_edit', {'id': departement.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_departement_new') }}">Creer Departement</a>
+{% endblock %}

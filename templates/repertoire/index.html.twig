@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Repertoire index{% endblock %}
+
+{% block content %}
+    <h1>Répertoire Téléphonique</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Numero</th>
+                <th>Nom</th>
+                <th>Mail</th>
+                <th>Departement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for repertoire in repertoires %}
+            <tr>
+                <td>{{ repertoire.id }}</td>
+                <td>{{ repertoire.numero }}</td>
+                <td>{{ repertoire.nom }}</td>
+                <td>{{ repertoire.mail }}</td>
+                <td>{{ repertoire.departements.description }}</td>
+                <td>
+                    <a href="{{ path('app_repertoire_show', {'id': repertoire.id}) }}">show</a>
+                    <a href="{{ path('app_repertoire_edit', {'id': repertoire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    <a class="btn btn-primary" href="{{ path('app_repertoire_new') }}">Ajout</a>
+{% endblock %}

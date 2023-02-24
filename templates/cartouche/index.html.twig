@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cartouche index{% endblock %}
+
+{% block content %}
+    <h1>Suivi Prise de Cartouches</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Nom Personne</th>
+                <th>Departement</th>
+                <th>Reference Cartouche</th>
+                <th>Qte</th>
+                <th>Couleur</th>
+                <th>Fournisseur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cartouche in cartouches %}
+            <tr>
+                <td>{{ cartouche.id }}</td>
+                <td>{{ cartouche.date ? cartouche.date|date('d-m-Y') : '' }}</td>
+                <td>{{ cartouche.nomPersonne }}</td>
+                <td>{{ cartouche.departement.description }}</td>
+                <td>{{ cartouche.referenceCartouche }}</td>
+                <td>{{ cartouche.qte }}</td>
+                <td>{{ cartouche.couleur.description }}</td>
+                <td>{{ cartouche.fournisseur.description }}</td>
+
+                <td>
+                    <a href="{{ path('app_cartouche_show', {'id': cartouche.id}) }}">show</a>
+                    <a href="{{ path('app_cartouche_edit', {'id': cartouche.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_cartouche_new') }}">Nouvelle Prise de Cartouche</a>
+{% endblock %}

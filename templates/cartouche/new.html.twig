@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Cartouche{% endblock %}
+
+{% block content %}
+    <h1>Create new Cartouche</h1>
+
+    {{ include('cartouche/_form.html.twig') }}
+
+    <a href="{{ path('app_cartouche_index') }}">back to list</a>
+{% endblock %}

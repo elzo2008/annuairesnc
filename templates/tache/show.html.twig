@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tache{% endblock %}
+
+{% block content %}
+    <h1>Tache</h1>
+
+    <table class="table table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tache.id }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ tache.createdAt ? tache.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ tache.description }}</td>
+            </tr>
+            <tr>
+                <th>NumDa</th>
+                <td>{{ tache.numDa }}</td>
+            </tr>
+            <tr>
+                <th>NumBc</th>
+                <td>{{ tache.numBc }}</td>
+            </tr>
+            <tr>
+                <th>NumFac</th>
+                <td>{{ tache.numFac }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ tache.statut }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ tache.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Fichier</th>
+                <td>{{ tache.imageFile }}</td>
+            </tr>
+
+            <tr>
+                <th>DateExecution</th>
+                <td>{{ tache.dateExecution ? tache.dateExecution|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_tache_index') }}">back to list</a>
+
+    <a href="{{ path('app_tache_edit', {'id': tache.id}) }}">edit</a>
+
+    {{ include('tache/_delete_form.html.twig') }}
+{% endblock %}

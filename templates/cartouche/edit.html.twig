@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Cartouche{% endblock %}
+
+{% block content %}
+    <h1>Edit Cartouche</h1>
+
+    {{ include('cartouche/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_cartouche_index') }}">back to list</a>
+
+    {{ include('cartouche/_delete_form.html.twig') }}
+{% endblock %}

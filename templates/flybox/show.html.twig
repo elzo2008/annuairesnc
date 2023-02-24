@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Flybox{% endblock %}
+
+{% block content %}
+    <h1>Flybox</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ flybox.id }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ flybox.description }}</td>
+            </tr>
+            <tr>
+                <th>NumeroTelephone</th>
+                <td>{{ flybox.numeroTelephone }}</td>
+            </tr>
+            <tr>
+                <th>Ssid</th>
+                <td>{{ flybox.ssid }}</td>
+            </tr>
+            <tr>
+                <th>MotDePasse</th>
+                <td>{{ flybox.motDePasse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_flybox_index') }}">back to list</a>
+
+    <a href="{{ path('app_flybox_edit', {'id': flybox.id}) }}">edit</a>
+
+    {{ include('flybox/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InventaireMateriel{% endblock %}
+
+{% block content %}
+    <h1>InventaireMateriel</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ inventaire_materiel.id }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ inventaire_materiel.description }}</td>
+            </tr>
+            <tr>
+                <th>Numero Cartouche</th>
+                <td>{{ inventaire_materiel.numeroCartouche }}</td>
+            </tr>
+            <tr>
+                <th>Ip</th>
+                <td>{{ inventaire_materiel.ip }}</td>
+            </tr>
+            <tr>
+                <th>Localisation</th>
+                <td>{{ inventaire_materiel.localisation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_inventaire_materiel_index') }}">back to list</a>
+
+    <a href="{{ path('app_inventaire_materiel_edit', {'id': inventaire_materiel.id}) }}">edit</a>
+
+    {{ include('inventaire_materiel/_delete_form.html.twig') }}
+{% endblock %}

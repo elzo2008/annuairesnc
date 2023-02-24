@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+
+<div class="container mt-4">
+
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-md-3">{{ form_row(form.numero) }}</div>
+    <div class="col-md-3">{{ form_row(form.nom) }}</div>
+    <div class="col-md-3">{{ form_row(form.mail) }}</div>
+    <div class="col-md-3">{{ form_row(form.departements) }}</div>
+    <div><button type="button" name="add" class="btn btn-success btn-xs add">Ajout ligne</button></div>
+</div>
+    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+</div>
+{% endblock %}
+
+{% block javascripts %}
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+
+<script>
+    $(document).ready(function(){
+        var count = 0;
+        
+        $(document).on('click', '.add', function(){
+        count++;
+        var html ='';
+        html += '<tr>';
+        html += '<td><div class="col-md-3">{{ form_row(form.numero) }}</div></td>';
+
+        });
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}INTRANET SENICO{% endblock %}
+
+{% block content %}
+
+    <h1>Mon compte</h1>
+    Bienvenue {{ app.user.firstname }} dans votre compte. <br />
+    c'est dans cet espace que vous allez gerez toute vos infos personelles.
+    <hr>
+        <a href="{{ path('account_password') }}">- Modifier mon mot de passe <br /></a>
+        - Ajouter mes taches <br />
+        - Mes adresses <br />
+        <a href="">ff</a>
+    </hr>
+
+{% endblock %}

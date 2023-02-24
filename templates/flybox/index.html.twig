@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Flybox index{% endblock %}
+
+{% block content %}
+    <h1>Flybox index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>NumeroTelephone</th>
+                <th>Ssid</th>
+                <th>MotDePasse</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for flybox in flyboxes %}
+            <tr>
+                <td>{{ flybox.id }}</td>
+                <td>{{ flybox.description }}</td>
+                <td>{{ flybox.numeroTelephone }}</td>
+                <td>{{ flybox.ssid }}</td>
+                <td>{{ flybox.motDePasse }}</td>
+                <td>
+                    <a href="{{ path('app_flybox_show', {'id': flybox.id}) }}">show</a>
+                    <a href="{{ path('app_flybox_edit', {'id': flybox.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_flybox_new') }}">Create new</a>
+{% endblock %}

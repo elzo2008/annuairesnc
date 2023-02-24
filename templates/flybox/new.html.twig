@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Flybox{% endblock %}
+
+{% block content %}
+    <h1>Create new Flybox</h1>
+
+    {{ include('flybox/_form.html.twig') }}
+
+    <a href="{{ path('app_flybox_index') }}">back to list</a>
+{% endblock %}

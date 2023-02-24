@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Flybox{% endblock %}
+
+{% block content %}
+    <h1>Edit Flybox</h1>
+
+    {{ include('flybox/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_flybox_index') }}">back to list</a>
+
+    {{ include('flybox/_delete_form.html.twig') }}
+{% endblock %}

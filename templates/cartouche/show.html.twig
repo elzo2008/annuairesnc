@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cartouche{% endblock %}
+
+{% block content %}
+    <h1>Cartouche</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cartouche.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ cartouche.date ? cartouche.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>NomPersonne</th>
+                <td>{{ cartouche.nomPersonne }}</td>
+            </tr>
+            <tr>
+                <th>ReferenceCartouche</th>
+                <td>{{ cartouche.referenceCartouche }}</td>
+            </tr>
+            <tr>
+                <th>Qte</th>
+                <td>{{ cartouche.qte }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cartouche_index') }}">back to list</a>
+
+    <a href="{{ path('app_cartouche_edit', {'id': cartouche.id}) }}">edit</a>
+
+    {{ include('cartouche/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statut index{% endblock %}
+
+{% block content %}
+    <h1>Statut index</h1>
+
+    <table class="table table table-bordered table-hover">
+        <thead class="thead-light table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for statut in statuts %}
+            <tr>
+                <td>{{ statut.id }}</td>
+                <td>{{ statut.description }}</td>
+                <td>
+                    <a href="{{ path('app_statut_show', {'id': statut.id}) }}">show</a>
+                    <a href="{{ path('app_statut_edit', {'id': statut.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_statut_new') }}">Create new</a>
+{% endblock %}

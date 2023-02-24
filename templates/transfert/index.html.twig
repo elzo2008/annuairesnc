@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transferts{% endblock %}
+
+{% block content %}
+    <h1>Transfert</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Materiel</th>
+                <th>Hostname</th>
+                <th>SerialNumber</th>
+                <th>Destinataire</th>
+                <th>DateTransfert</th>
+                <th>Commentaire</th>
+                <th>Qte</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for transfert in transferts %}
+            <tr>
+                <td>{{ transfert.id }}</td>
+                <td>{{ transfert.materiel.description }}</td>
+                <td>{{ transfert.hostname }}</td>
+                <td>{{ transfert.serialNumber }}</td>
+                <td>{{ transfert.destinataire }}</td>
+                <td>{{ transfert.dateTransfert ? transfert.dateTransfert|date('d-m-Y') : '' }}</td>
+                <td>{{ transfert.commentaire }}</td>
+                <td>{{ transfert.qte }}</td>
+                <td>
+                    <a href="{{ path('app_transfert_show', {'id': transfert.id}) }}">show</a>
+                    <a href="{{ path('app_transfert_edit', {'id': transfert.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_transfert_new') }}">Nouveau Transfert</a>
+{% endblock %}

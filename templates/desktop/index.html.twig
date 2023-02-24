@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Desktop index{% endblock %}
+
+{% block content %}
+    <h1>Desktop index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomOrdinateur</th>
+                <th>Anydesk</th>
+                <th>Proprietaire</th>
+                <th>Ip</th>
+                <th>Localisation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for desktop in desktops %}
+            <tr>
+                <td>{{ desktop.id }}</td>
+                <td>{{ desktop.nomOrdinateur }}</td>
+                <td>{{ desktop.anydesk }}</td>
+                <td>{{ desktop.proprietaire }}</td>
+                <td>{{ desktop.ip }}</td>
+                <td>{{ desktop.localisation }}</td>
+                <td>
+                    <a href="{{ path('app_desktop_show', {'id': desktop.id}) }}">show</a>
+                    <a href="{{ path('app_desktop_edit', {'id': desktop.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_desktop_new') }}">Create new</a>
+{% endblock %}
